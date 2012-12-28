@@ -1,0 +1,44 @@
+aio.o: aio.c aio.h ../common/log.h ../common/share_fun.h storage_nio.h \
+ trunk_file.h ../common/mem_pool.h
+	$(YDFS_CC) -c $<
+storage_net.o: storage_net.c storage_nio.h aio.h ../common/log.h \
+ ../common/share_fun.h trunk_file.h ../common/mem_pool.h storage_sync.h \
+ ../common/sockopt.h ../common/log.h ../common/share_fun.h \
+ ../common/heart_beat.h storage_net.h ../common/share_net.h \
+ ../common/ae.h storage_global.h storage_service.h ../common/base.h \
+ ../common/debug.h
+	$(YDFS_CC) -c $<
+storage_nio.o: storage_nio.c storage_nio.h aio.h ../common/log.h \
+ ../common/share_fun.h trunk_file.h ../common/mem_pool.h storage_net.h \
+ ../common/sockopt.h ../common/log.h ../common/share_fun.h \
+ ../common/share_net.h ../common/ae.h storage_global.h storage_sync.h \
+ ../common/heart_beat.h ../common/ae.h
+	$(YDFS_CC) -c $<
+storage_recovery.o: storage_recovery.c storage_recovery.h storage_sync.h \
+ ../common/sockopt.h ../common/log.h ../common/share_fun.h \
+ ../common/heart_beat.h storage_nio.h aio.h ../common/log.h \
+ ../common/share_fun.h trunk_file.h ../common/mem_pool.h storage_global.h \
+ ../common/share_net.h ../common/ae.h ../common/base.h storage_net.h
+	$(YDFS_CC) -c $<
+storage_service.o: storage_service.c storage_net.h ../common/sockopt.h \
+ ../common/log.h ../common/share_fun.h ../common/share_net.h \
+ ../common/ae.h storage_global.h storage_nio.h aio.h ../common/log.h \
+ ../common/share_fun.h trunk_file.h ../common/mem_pool.h storage_sync.h \
+ ../common/heart_beat.h storage_service.h ../tracker/tracker_proto.h \
+ storage_proto.h storage_recovery.h ../common/base.h
+	$(YDFS_CC) -c $<
+storage_sync.o: storage_sync.c storage_sync.h ../common/sockopt.h \
+ ../common/log.h ../common/share_fun.h ../common/heart_beat.h \
+ storage_nio.h aio.h ../common/log.h ../common/share_fun.h trunk_file.h \
+ ../common/mem_pool.h storage_recovery.h storage_proto.h storage_net.h \
+ ../common/share_net.h ../common/ae.h storage_global.h ../common/base.h \
+ ../common/ae.h
+	$(YDFS_CC) -c $<
+trunk_file.o: trunk_file.c trunk_file.h ../common/base.h ../common/log.h
+	$(YDFS_CC) -c $<
+ydfs_storage.o: ydfs_storage.c storage_global.h ../common/sockopt.h \
+ ../common/log.h ../common/share_fun.h storage_nio.h aio.h \
+ ../common/log.h ../common/share_fun.h trunk_file.h ../common/mem_pool.h \
+ storage_sync.h ../common/heart_beat.h ../common/share_net.h \
+ ../common/ae.h storage_net.h storage_config.h ../common/debug.h
+	$(YDFS_CC) -c $<

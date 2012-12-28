@@ -1,0 +1,9 @@
+client_api.o: client_api.c ../common/log.h ../common/heart_beat.h \
+ client_api.h ../common/sockopt.h ../common/log.h ../common/share_fun.h \
+ ../tracker/tracker_proto.h ../storage/storage_proto.h ../common/base.h \
+ thread_pool.h
+	$(YDFS_CC) -c $<
+thread_pool.o: thread_pool.c thread_pool.h
+	$(YDFS_CC) -c $<
+ydfs_client.o: ydfs_client.c client_api.h
+	$(YDFS_CC) -c $<

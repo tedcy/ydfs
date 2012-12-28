@@ -1,0 +1,8 @@
+#ifndef TRACKER_PROTO_H
+#define TRACKER_PROTO_H
+
+#define UPLOAD_GET_STORAGE 1
+#define DOWNLOAD_GET_STORAGE 2
+#define STORAGE_HEART_BEAT 3
+
+#endif

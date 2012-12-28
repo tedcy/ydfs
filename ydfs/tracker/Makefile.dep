@@ -1,0 +1,27 @@
+storage_pool.o: storage_pool.c storage_pool.h ../common/heart_beat.h \
+ ../common/base.h ../common/log.h tracker_global.h ../common/sockopt.h \
+ ../common/log.h ../common/share_fun.h ../common/share_net.h \
+ ../common/ae.h tracker_nio.h ../common/mem_pool.h ../common/share_fun.h
+	$(YDFS_CC) -c $<
+tracker_net.o: tracker_net.c tracker_nio.h ../common/mem_pool.h \
+ tracker_net.h ../common/sockopt.h ../common/log.h ../common/share_fun.h \
+ ../common/share_net.h ../common/ae.h tracker_global.h storage_pool.h \
+ ../common/heart_beat.h tracker_service.h
+	$(YDFS_CC) -c $<
+tracker_nio.o: tracker_nio.c tracker_nio.h ../common/mem_pool.h \
+ tracker_global.h ../common/sockopt.h ../common/log.h \
+ ../common/share_fun.h ../common/share_net.h ../common/ae.h \
+ storage_pool.h ../common/heart_beat.h ../common/ae.h ../common/log.h
+	$(YDFS_CC) -c $<
+tracker_service.o: tracker_service.c tracker_service.h tracker_proto.h \
+ tracker_global.h ../common/sockopt.h ../common/log.h \
+ ../common/share_fun.h ../common/share_net.h ../common/ae.h tracker_nio.h \
+ ../common/mem_pool.h storage_pool.h ../common/heart_beat.h tracker_net.h \
+ ../common/base.h ../common/share_fun.h
+	$(YDFS_CC) -c $<
+ydfs_tracker.o: ydfs_tracker.c tracker_global.h ../common/sockopt.h \
+ ../common/log.h ../common/share_fun.h ../common/share_net.h \
+ ../common/ae.h tracker_nio.h ../common/mem_pool.h storage_pool.h \
+ ../common/heart_beat.h tracker_net.h ../common/debug.h tracker_config.h \
+ ../common/log.h
+	$(YDFS_CC) -c $<

@@ -1,0 +1,71 @@
+Where to find complete ydfs documentation?
+------------------------------------------
+
+This README is just a fast "quick start" document.You can find more detailed documentation at code.google.com/p/ydfs/Wiki
+
+How to report bugs to Author?
+------------------------------
+You can Email yue.cheng.ted@gmail.com,I will report you soon.
+
+Building ydfs
+-------------
+
+ydfs can be compiled and used on Linux
+We support big endian and little endian architectures,32bit or 64bit.
+
+It is as simple as:
+	% make
+	% make install
+	% make clean
+NOTE:	--prefix= is supported
+
+Running ydfs
+------------
+
+To run ydfs with the default configuration just type:
+	% cd storage
+	./ydfs_storage
+Another terminal or computer
+	% cd trakcer
+	./ydfs_tracker
+Another terminal or computer
+	% cd client 
+	%./ydfs_client uploadTest [which dir] [file_num] [thread_pool_size]
+	%./ydfs_client download [file_num] [thread_pool_size]
+
+
+Testint ydfs
+------------
+
+After complied, you may type:
+	% make double_test_storage
+Then you will find storage and storage.config in storage/1
+		and storage and storage.config in storage/2
+One terminal
+	%cd storage/1
+	./ydfs_storage
+Another terminal
+	%cd storage/2
+	./ydfs_storage
+Another terminal
+	%cd tracker
+	./ydfs_tracker
+Another terminal
+	%cd client
+	%./ydfs_client uploadTest [which dir] [file_num] [thread_pool_size]
+	%./ydfs_client download [file_num] [thread_pool_size]
+
+NOTE:	this client is written for test.
+	DO NOT RUN IT AT ONLINE ENVIRONMENT!
+
+Recovery storage of ydfs
+------------------------
+if storage has broken down,you want to recovery it
+then 
+	vim storage.config
+you will find "storage_id = -1"
+modify "-1" as storage_id of the tracker shown
+then
+	./ydfs_storage
+
+

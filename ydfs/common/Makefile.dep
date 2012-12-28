@@ -1,0 +1,14 @@
+ae.o: ae.c ae.h epoll.h
+	$(YDFS_CC) -c $<
+base.o: base.c base.h
+	$(YDFS_CC) -c $<
+debug.o: debug.c log.h debug.h
+	$(YDFS_CC) -c $<
+log.o: log.c log.h
+	$(YDFS_CC) -c $<
+mem_pool.o: mem_pool.c mem_pool.h log.h
+	$(YDFS_CC) -c $<
+share_net.o: share_net.c share_net.h ae.h sockopt.h log.h share_fun.h
+	$(YDFS_CC) -c $<
+sockopt.o: sockopt.c sockopt.h log.h share_fun.h debug.h
+	$(YDFS_CC) -c $<
